@@ -2,7 +2,7 @@
 if __name__ == '__main__':
     from calculator_1 import add, sub, mul, div
     from sys import argv, exit
-    
+
     length = len(argv)
     opera = ["+", "-", "*", "/"]
 
@@ -23,4 +23,3 @@ if __name__ == '__main__':
         print(f"{op1} {opera} {op2} = {mul(op1, op2)}")
     if opera == "/":
         print(f"{op1} {opera} {op2} = {div(op1, op2)}")
-    
