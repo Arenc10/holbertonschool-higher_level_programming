@@ -1,9 +1,9 @@
 #!/usr/bin/python3
-"""Defining a Square class"""
+"""Defining a Square class that prints a square"""
 
 
 class Square:
-    """__init__method that initialize square class
+    """__init__ method that initialize square class
     Args:
         size: size of the square
         position: position of the square
@@ -15,13 +15,13 @@ class Square:
 
     @property
     def size(self):
-        """Gets the value of attribute size"""
+        """Retrieves the value of attribute size"""
 
         return self.__size
 
     @property
     def position(self):
-        """Gets the value of attribute position"""
+        """Retrieves the value of attribute position"""
 
         return self.__position
 
