@@ -49,7 +49,10 @@ class Square:
         self.__position = value
 
     def area(self):
-        """Returns the area of a square"""
+        """Calculates the area of square
+        Return:
+            returns the area of the square
+        """
 
         return self.size * self.size
 
