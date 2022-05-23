@@ -3,15 +3,22 @@
 
 
 class Rectangle:
+    """Rectangle classs created with width and height
+
+    Attributes:
+        number_of_instances (int): the number of instances created and deleted
+        print_symbol (any type): symbol for string representation
+    """
     number_of_instances = 0
     print_symbol = "#"
 
-    """Empty class
-        Args:
-            width (int): The width of a rectangle
-            height (int): The height of a rectangle
-    """
     def __init__(self, width=0, height=0):
+        """ __init__ - initalize rectangle class
+            Args:
+                width (int): The width of a rectangle
+                height (int): The height of a rectangle
+        """
+
         self.height = height
         self.width = width
         type(self).number_of_instances += 1
@@ -73,4 +80,3 @@ class Rectangle:
         """Function that deletes an instance of class"""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-
