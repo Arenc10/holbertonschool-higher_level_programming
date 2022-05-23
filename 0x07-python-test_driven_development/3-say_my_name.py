@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""Concatenates two strings"""
+
+
 def say_my_name(first_name, last_name=""):
     """ Function that prints name and last name
 
