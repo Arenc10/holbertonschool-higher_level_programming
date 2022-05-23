@@ -3,8 +3,8 @@ def add_integer(a, b=98):
     """ Addition function
 
     Args:
-        a int: first operand
-        b int: second operand
+        a (int): first operand
+        b (int): second operand
     Return:
         returns the addition of two ints
     """
