@@ -59,6 +59,22 @@ class Rectangle:
             return 0
         return self.__width * 2 + self.__height * 2
 
+     @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Function that compares two rectangles"""
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if Rectangle.area(rect_1) < Rectangle.area(rect_2):
+            return rect_2
+        return rect_1
+
+    @classmethod
+    def square(cls, size=0):
+        return cls(size, size)
+
     def __str__(self):
         """Function that uses __str__ method"""
         if self.__width == 0 or self.__height == 0:
@@ -79,19 +95,3 @@ class Rectangle:
         """Function that deletes an instance of class"""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
-
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        """Function that compares two rectangles"""
-
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        if Rectangle.area(rect_1) < Rectangle.area(rect_2):
-            return rect_2
-        return rect_1
-
-    @classmethod
-    def square(cls, size=0):
-        return cls(size, size)
