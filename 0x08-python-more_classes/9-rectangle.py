@@ -8,6 +8,7 @@ class Rectangle:
         number_of_instances (int): the number of instances created and deleted
         print_symbol (any type): symbol for string representation
     """
+
     number_of_instances = 0
     print_symbol = "#"
 
@@ -18,17 +19,19 @@ class Rectangle:
                 height (int): The height of a rectangle
         """
 
-        self.height = height
         self.width = width
+        self.height = height
         type(self).number_of_instances += 1
 
     @property
     def width(self):
         """Get the value for width"""
+
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Setter function for width"""
         if type(value) != int:
             raise TypeError("width must be an int")
         if value < 0:
@@ -73,6 +76,7 @@ class Rectangle:
 
     @classmethod
     def square(cls, size=0):
+        """Returns a new Rectangle instance"""
         return cls(size, size)
 
     def __str__(self):
