@@ -3,6 +3,8 @@
 
 
 class Rectangle:
+    number_of_instances = 0
+    print_symbol = "#"
 
     """Empty class
         Args:
@@ -12,6 +14,7 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -57,10 +60,28 @@ class Rectangle:
         prnt = ""
         for i in range(self.__height):
             for j in range(self.__width):
-                prnt += "#"
+                prnt += str(self.print_symbol)
             if i < self.__height - 1:
                 prnt += '\n'
         return prnt
 
     def __repr__(self):
+        """Return the string representation of the rectangle"""
         return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Function that deletes an instance of class"""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """Function that compares two rectangles"""
+
+        if not isinstance(rect_1, Rectangle):
+            raise TypeError("rect_1 must be an instance of Rectangle")
+        if not isinstance(rect_2, Rectangle):
+            raise TypeError("rect_2 must be an instance of Rectangle")
+        if Rectangle.area(rect_1) < Rectangle.area(rect_2):
+            return rect_2
+        return rect_1

@@ -3,6 +3,7 @@
 
 
 class Rectangle:
+    number_of_instances = 0
 
     """Empty class
         Args:
@@ -12,6 +13,7 @@ class Rectangle:
     def __init__(self, width=0, height=0):
         self.height = height
         self.width = width
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -63,4 +65,11 @@ class Rectangle:
         return prnt
 
     def __repr__(self):
+        """Return the string representation of the rectangle"""
         return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """Function that deletes an instance of class"""
+        type(self).number_of_instances -= 1
+        print("Bye rectangle...")
+
