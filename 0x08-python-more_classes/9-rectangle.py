@@ -59,7 +59,7 @@ class Rectangle:
             return 0
         return self.__width * 2 + self.__height * 2
 
-     @staticmethod
+    @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """Function that compares two rectangles"""
 
@@ -89,9 +89,11 @@ class Rectangle:
 
     def __repr__(self):
         """Return the string representation of the rectangle"""
+
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
         """Function that deletes an instance of class"""
+
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
