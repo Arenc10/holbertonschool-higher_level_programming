@@ -21,7 +21,7 @@ class TestMaxInteger(unittest.TestCase):
     def test_string_list(self):
         self.assertEqual(max_integer(["Jack", "Sparrow"]), "Sparrow")
         self.assertEqual(max_integer("Jack"), "k")
-        self.assertEqual(max_integer([""]), None)
+        self.assertEqual(max_integer([""]), "")
 
     def test_float_list(self):
         self.assertEqual(max_integer([1.2, 2.3, 3.4]), 3.4)
