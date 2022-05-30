@@ -1,0 +1,7 @@
+Module 1-my_list
+
+def print_sorted(self) defines the sorted print of all integers
+
+	>>> print_sorted = __import__('1-my_list').MyList.sorted
+
+Works with integers only
