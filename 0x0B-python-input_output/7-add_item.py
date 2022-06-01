@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""Imports the necessary modules and adds arguments in a json string"""
+
 import sys
 import os
 save_to_json_file = __import__('5-save_to_json_file').save_to_json_file
