@@ -3,7 +3,12 @@
 
 
 def pascal_triangle(n):
-    """Returns a list of lists representing Pascals triange"""
+    """Returns a list of lists representing Pascals triange
+    Args:
+        n (int) - Number of rows displayed
+    Returns:
+        Returns a list that shows a pascal triange
+    """
     if n <= 0:
         return ""
 
