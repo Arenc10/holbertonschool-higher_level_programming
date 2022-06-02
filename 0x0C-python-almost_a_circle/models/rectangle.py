@@ -97,3 +97,15 @@ class Rectangle(Base):
                                                        self.y,
                                                        self.width,
                                                        self.height)
+
+    def update(self, *args, **kwargs):
+        """Function that updates dhe value for keys"""
+        argNames = ["id", "width", "height", "x", "y"]
+
+        if args and len(args) != 0:
+            for i in range(len(args)):
+                setattr(self, argName[i], args[i])
+        else:
+            for k, v in kwargs.items():
+                if hasattr(self, k):
+                    setattr(self, k, v)
