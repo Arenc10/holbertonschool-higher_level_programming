@@ -1,6 +1,7 @@
 #!/usr/bin/python3
+"""Defines a base module"""
 import json
-"""Defining a Base class"""
+from os import path
 
 
 class Base:
