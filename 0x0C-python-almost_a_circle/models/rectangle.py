@@ -40,6 +40,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """Getter function for y"""
         return self.__y
 
     @width.setter
