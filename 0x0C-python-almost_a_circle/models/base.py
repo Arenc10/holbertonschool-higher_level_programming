@@ -38,7 +38,7 @@ class Base:
         """Function that writes the json string representation to a file"""
         lst = []
         filename = cls.__name__ + ".json"
-        if list_objs is no None:
+        if list_objs is not None:
             for el in list_objs:
                 lst.append(el.to_dictionary())
         with open(filename, "w", encoding="utf-8") as f:
