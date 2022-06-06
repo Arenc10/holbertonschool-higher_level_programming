@@ -16,10 +16,6 @@ class Square(Rectangle):
         super().__init__(size, size, x, y, id)
         self.size = size
 
-    def __str__(self):
-        """Function that returns a string representation of Square class"""
-        return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
-
     @property
     def size(self):
         """Getter function"""
@@ -41,8 +37,8 @@ class Square(Rectangle):
                 setattr(self, argName[i], args[i])
         else:
             for k, v in kwargs.items():
-                if hasattr(self, key):
-                    setattr(self, key, value)
+                if hasattr(self, k):
+                    setattr(self, k, v)
 
     def to_dictionary(self):
         """Returns a dictionary representation of the Square class"""
