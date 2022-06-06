@@ -29,7 +29,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """Returns the JSON string representations of a obj"""
-        if list_dictionaries is None:
+        if list_dictionaries is None or list_dictionaries is []:
             return "[]"
         return json.dumps(list_dictionaries)
 
@@ -41,8 +41,8 @@ class Base:
         if list_objs is not None:
             for el in list_objs:
                 lst.append(el.to_dictionary())
-        with open(filename, "w", encodeing="utf-8") as f:
-            f.write(cls.to_json_string(new_list))
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(cls.to_json_string(lst))
 
     @staticmethod
     def from_json_string(json_string):
@@ -54,6 +54,6 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """Function that updates by adding class method"""
-        testInstance = cls(1, 1) if cls.__name__ = "Rectangle" else cls(1)
+        testInstance = cls(1, 1) if cls.__name__ == "Rectangle" else cls(1)
         testInstance.update(**dictionary)
         return testInstance
