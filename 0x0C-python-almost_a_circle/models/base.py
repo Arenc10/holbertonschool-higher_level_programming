@@ -71,3 +71,28 @@ class Base:
                 return myList
         else:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Function that writes the json string representation to a file"""
+        lst = []
+        filename = cls.__name__ + ".csv"
+        if list_objs is not None:
+            for el in list_objs:
+                lst.append(el.to_dictionary())
+        with open(filename, "w", encoding="utf-8") as f:
+            f.write(cls.to_json_string(lst))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Function that returns a list of instances"""
+        myFile = cls.__name__ + ".csv"
+        myList = []
+        if path.exists(myFile):
+            with open(myFile, "r", encoding="utf-8") as f:
+                dict = cls.from_json_string(f.read())
+                for instance in dict:
+                    myList.append(cls.create(**instance))
+                return myList
+        else:
+            return []
