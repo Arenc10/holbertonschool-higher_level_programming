@@ -57,3 +57,17 @@ class Base:
         testInstance = cls(1, 1) if cls.__name__ == "Rectangle" else cls(1)
         testInstance.update(**dictionary)
         return testInstance
+
+    @classmethod
+    def load_from_file(cls):
+        """Function that returns a list of instances"""
+        myFile = cls.__name__ + ".json"
+        myList = []
+        if path.exists(myFile):
+            with open(myFile, "r", encoding="utf-8") as f:
+                dict = cls.from_json_string(f.read())
+                for instance in dict:
+                    myList.append(cls.create(**instance))
+                return myList
+        else:
+            return []
