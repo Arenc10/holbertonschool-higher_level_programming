@@ -1,3 +1,3 @@
-#!/bin/usr/node
+#!/usr/bin/node
 myVar = 333;
 exports.myVar = myVar;
