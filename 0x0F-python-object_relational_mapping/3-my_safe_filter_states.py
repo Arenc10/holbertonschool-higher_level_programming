@@ -12,7 +12,7 @@ if __name__ == "__main__":
             passwd=sys.argv[2],
             db=sys.argv[3])
     state = sys.argv[4]
-    query = "SELECT * FROM states WHERE name = '%s'"
+    query = "SELECT * FROM states WHERE name=%s"
     cur = db.cursor()
     cur.execute(query, (state, ))
     rows = cur.fetchall()
