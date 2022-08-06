@@ -12,6 +12,7 @@ if __name__ == "__main__":
                                   sys.argv[2],
                                   sys.argv[3]),
                            pool_pre_ping=True)
+    Base.metadata.create_all(engine)
     session = sessionmaker(bind=engine)()
     for state in session.query(State).all():
         if 'a' in state.name:
