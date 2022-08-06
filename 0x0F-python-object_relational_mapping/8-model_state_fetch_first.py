@@ -17,5 +17,6 @@ if __name__ == "__main__":
     for state in session.query(State).filter(State.id == 1).all():
         if state:
             print(f"{state.id}: {state.name}")
-        print("Nothing")
+        else:
+            print("Nothing")
     session.close()
