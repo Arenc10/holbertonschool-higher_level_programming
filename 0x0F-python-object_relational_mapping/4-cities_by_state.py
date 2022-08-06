@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 '''Filters states by user input from MySQL database hbtn_0e_0_usa'''
-
-
 import sys
 import MySQLdb
+
 
 if __name__ == "__main__":
 
