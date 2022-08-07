@@ -1,23 +1,25 @@
 #!/usr/bin/python3
-'''Filters states by user input from MySQL database hbtn_0e_0_usa'''
-import sys
+"""script that takes in the name of a state as an argument and
+lists all cities of that state, using hbtn_0e_4_usa"""
 import MySQLdb
+import sys
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
 
-    db = MySQLdb.connect(
-            host="localhost",
-            port=3306,
-            user=sys.argv[1],
-            passwd=sys.argv[2],
-            db=sys.argv[3])
-    state = sys.argv[4]
-    query = "SELECT cities.name FROM cities
-    INNER JOIN states ON cities.state_id = states.id WHERE states.name = %s"
-    cur = db.cursor()
-    cur.execute(query, (state, ))
-    rows = cur.fetchall()
-    print(", ".join([row[0] for row in rows]))
-    cur.close()
+    db = MySQLdb.connect(host="localhost", port=3306,
+                         user=sys.argv[1], passwd=sys.argv[2],
+                         db=sys.argv[3], charset="utf8")
+    cursor = db.cursor()
+    myQuery = " ".join([
+        "SELECT cities.name FROM cities",
+        "INNER JOIN states ON states.id = cities.state_id",
+        "WHERE states.name LIKE BINARY '{}'",
+        "ORDER BY cities.id",
+        ]).format(sys.argv[4])
+    cursor.execute(myQuery)
+    res = cursor.fetchall()
+    strRes = ', '.join([i[0] for i in res])
+    print(strRes)
+    cursor.close()
     db.close()
